@@ -1,0 +1,29 @@
+<html>
+<head>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">
+
+</head>
+<body>
+    <div class="container">
+        <h1>Kanban: Choose Your own Adventure</h1>
+        <div class="row" id="stage">
+        </div>
+        <h2>Time Remaining: 45:00</h2>
+    </div>
+    <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="lib/handlebars-v1.3.0.js"></script>
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+
+    <script src="src/Adventure.js"></script>
+    <script src="src/AdventureMap.js"></script>
+    <script>
+        var adventure = new Adventure(adventure_map);
+        $("#stage").html(adventure.root());
+    </script>
+</body>
+</html>
