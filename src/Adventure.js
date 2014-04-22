@@ -1,22 +1,48 @@
 function Adventure(map) {
-	this.map = map;
-	this.root_template =
-	['{{#options}}',
+  this.map = map;
+  this.root_template =
+  ['{{#options}}',
      '<div id="{{title}}" class="col-md-4 center" style="background-color: {{background-color}};min-height: 180px;">',
-     '<h1>{{title}}</h1>',
+     '<h1><a href="{{nav name}}">{{title}}</a></h1>',
      '</div>',
      '{{/options}}'
     ].join('\n');
 }
 
+function navigate(name, adventure) {
+  // Navigate to the given node
+  console.log(name, adventure.node());
+  $(adventure.stage).html(adventure.node().html);
+}
+
 Adventure.prototype.setRootTemplate = function(template) {
-	this.root_template = template;
+  this.root_template = template;
+};
+
+Adventure.prototype.setStage = function(stage) {
+  this.stage = stage;
 };
 
 Adventure.prototype.root = function() {
 
-    var options_menu_template = this.root_template;
-    var template = Handlebars.compile(options_menu_template);
+  var options_menu_template = this.root_template;
+  var self = this; // It's all about the context...
 
-	return template(this.map);
+  Handlebars.registerHelper('nav', function(name) {
+
+    // Crossroads is global - is this a good idea?
+    crossroads.addRoute('/node/{name}', function(name) {
+      navigate(name, self);
+    });
+    // Nasty duplication of URL pattern - not DRY
+    return '#/node/' + name;
+  });
+
+  var template = Handlebars.compile(options_menu_template);
+
+  return template(this.map);
+};
+
+Adventure.prototype.node = function() {
+  return {html: "<img src='resources/airport-queue.jpg' width='100%'/>"};
 };

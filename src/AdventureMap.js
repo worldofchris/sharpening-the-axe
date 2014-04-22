@@ -1,7 +1,11 @@
 var adventure_map = {"options":[
         {
+          "name": "queueing-strategies",
             "title": "Queueing Strategies",
-            "background-color": "red"
+            "background-color": "red",
+            "content": {
+              "image": "resources/airport-queue.jpg"
+            }
         },
         {
             "title": "Limit WIP",

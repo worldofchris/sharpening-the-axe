@@ -1,3 +1,4 @@
+<!--Lint Lint Lint!-->
 <html>
 <head>
 <!-- Latest compiled and minified CSS -->
@@ -16,14 +17,35 @@
     </div>
     <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
     <script type="text/javascript" src="lib/handlebars-v1.3.0.js"></script>
-    <!-- Latest compiled and minified JavaScript -->
+
     <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+
+
+    <script src="lib/signals.js"></script>
+    <script src="lib/hasher.js"></script>
+    <script src="lib/crossroads.js"></script>
 
     <script src="src/Adventure.js"></script>
     <script src="src/AdventureMap.js"></script>
     <script>
-        var adventure = new Adventure(adventure_map);
-        $("#stage").html(adventure.root());
+
+        $( document ).ready(function() {
+            var adventure = new Adventure(adventure_map);
+            adventure.setStage($("#stage"));
+            $("#stage").html(adventure.root());
+
+            function parseHash(newHash, oldHash){
+                // second parameter of crossroads.parse() is the "defaultArguments" and should be an array
+                // so we ignore the "oldHash" argument to avoid issues.
+                crossroads.parse(newHash);
+            }
+            hasher.initialized.add(parseHash); //parse initial hash
+            hasher.changed.add(parseHash); //parse hash changes
+             
+            hasher.init(); //start listening for hash changes
+
+        })        
+
     </script>
 </body>
 </html>
