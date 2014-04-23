@@ -7,17 +7,22 @@ describe("Adventure", function() {
     // Given some options
     var map = {"options":[
         {
-            "name": "airports",
+            "name":  "airports",
             "title": "Airports",
             "content": {
               "image": "resources/airport-queue.jpg"
             },
-            "notes": ["Who can tell me what this is?  It's an example of a dysfunctional queuing strategy."] +
-                     ["Why is it dusfunctional?  Because an airline employee has to keep expediting by   "] +
-                     ["shouting the names of closing flights and pulling people to the front of the queue"].join('\n')
+            "notes": ["Who can tell me what this is?  It's an example of a dysfunctional queuing strategy." +
+                      "Why is it dusfunctional?  Because an airline employee has to keep expediting by   " +
+                      "shouting the names of closing flights and pulling people to the front of the queue"],
         },
         {
-            "title": "Fresh Fruit Juice"
+            "name":  "fresh-fruit-juice",
+            "title": "Fresh Fruit Juice",
+            "content": {
+              "image": "resources/fresh-fruit-juice.jpg"
+            },
+            "notes": ["Man I love Fresh Fruit Juice"]
         },
         {
             "title": "Art History"
@@ -65,6 +70,15 @@ describe("Adventure", function() {
     expect(airports).toContainElement('img');
     expect(airports.find('img')).toHaveAttr('src', 'resources/airport-queue.jpg');
 
+    // This should work for multiple nodes
+
+    var fruit_juice = setFixtures(adventure.node("fresh-fruit-juice").html);
+    // The content image should be displayed
+
+    expect(fruit_juice).toContainElement('img');
+    expect(fruit_juice.find('img')).toHaveAttr('src', 'resources/fresh-fruit-juice.jpg');
+
+
   });
 
   it("should pop up the notes so the presenter can see them but not the audience", function() {
@@ -78,6 +92,12 @@ describe("Adventure", function() {
 
     expect(notepad.setNotes).toHaveBeenCalledWith("Who can tell me what this is?  It's an example of a dysfunctional queuing strategy.Why is it dusfunctional?  Because an airline employee has to keep expediting by   shouting the names of closing flights and pulling people to the front of the queue");
 
+  });
+
+  it("should not explode if there is no content in a node", function() {
+
+    var node = adventure.node("does-not-exist");
+    expect(node).toBeUndefined();
   });
 
 });

@@ -13,12 +13,27 @@ var adventure_map = {"options":[
                     " * No one knows when they will get to the head of the queue",
                     " * No one knows whether they will get to the head of the queue in time",
                     " * We don't know the length of the queue",
-                    " * These screens aren't doing anything to help either"].join('<br/>'),
+                    " * These screens aren't doing anything to help either"],
           "links": ["predict-throughput", "limit-queue-sizes", "make-the-work-visible", "feedback"]
         },
         {
-            "title": "Limit WIP",
-            "background-color": "orange"
+          "name": "limit-wip",
+          "title": "Limit WIP",
+          "background-color": "orange",
+          "content": {
+            "image": "resources/kanban-board-wip-limits.jpg"
+          },
+          "notes": ["Limiting WIP with explicit WIP limits on a Kanban board is something that took me a couple ",
+                    "of years to get to.  I didn't use them at all in my first use of Kanban at YouView, instead ",
+                    "using the 'Avatar' method.",
+                    "* Who here is using explicit WIP limits?",
+                    "* Who isn't?",
+                    "They appear to be 'Top Down'",
+                    "They are not something you can do on your own BUT you can limit your own WIP",
+                    "Stop Starting, Start Finishing has become a mantra for me and one that I apply out of habit",
+                    "whenever a context switch looms",
+                    "What is the cost of not finishing what I'm doing now?"],
+          "links": ["individual-responsibility", "habits", "limiting-queue-lengths", "a-function-of-maturity", "round-robin-scheduling"]
         },
         {
             "title": "Make the Work Visible",
