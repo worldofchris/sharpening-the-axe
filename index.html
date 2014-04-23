@@ -14,6 +14,7 @@
         <div class="row" id="stage">
         </div>
         <h2>Time Remaining: 45:00</h2>
+        <h3><a href="#" id="notes">Notes</a></h3>
     </div>
     <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
     <script type="text/javascript" src="lib/handlebars-v1.3.0.js"></script>
@@ -27,11 +28,19 @@
 
     <script src="src/Adventure.js"></script>
     <script src="src/AdventureMap.js"></script>
+
+    <script src="lib/showdown.js"></script>
+    <script src="src/Notepad.js"></script>
     <script>
 
-        $( document ).ready(function() {
+
+        $(document).ready(function() {
+            var notepad = new Notepad();
             var adventure = new Adventure(adventure_map);
+
             adventure.setStage($("#stage"));
+            adventure.setNotePad(notepad);
+
             $("#stage").html(adventure.root());
 
             function parseHash(newHash, oldHash){
@@ -43,6 +52,10 @@
             hasher.changed.add(parseHash); //parse hash changes
              
             hasher.init(); //start listening for hash changes
+
+            $('#notes').click(function() {
+                notepad.show();
+            });
 
         })        
 

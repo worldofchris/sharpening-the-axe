@@ -11,7 +11,10 @@ describe("Adventure", function() {
             "title": "Airports",
             "content": {
               "image": "resources/airport-queue.jpg"
-            }
+            },
+            "notes": ["Who can tell me what this is?  It's an example of a dysfunctional queuing strategy."] +
+                     ["Why is it dusfunctional?  Because an airline employee has to keep expediting by   "] +
+                     ["shouting the names of closing flights and pulling people to the front of the queue"].join('\n')
         },
         {
             "title": "Fresh Fruit Juice"
@@ -56,7 +59,7 @@ describe("Adventure", function() {
 
   it("should present simple content - a single image", function() {
 
-    var airports = setFixtures(adventure.node("Airports").html);
+    var airports = setFixtures(adventure.node("airports").html);
     // The content image should be displayed
 
     expect(airports).toContainElement('img');
@@ -64,7 +67,17 @@ describe("Adventure", function() {
 
   });
 
-  // And the notes should appear...where?
+  it("should pop up the notes so the presenter can see them but not the audience", function() {
+    var notepad = {
+      setNotes: function(notes) {notes = notes;}
+    };
+    spyOn(notepad, 'setNotes');
 
+    adventure.setNotePad(notepad);
+    navigate('airports', adventure);
+
+    expect(notepad.setNotes).toHaveBeenCalledWith("Who can tell me what this is?  It's an example of a dysfunctional queuing strategy.Why is it dusfunctional?  Because an airline employee has to keep expediting by   shouting the names of closing flights and pulling people to the front of the queue");
+
+  });
 
 });

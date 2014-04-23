@@ -12,7 +12,11 @@ function Adventure(map) {
 function navigate(name, adventure) {
   // Navigate to the given node
   console.log(name, adventure.node());
-  $(adventure.stage).html(adventure.node().html);
+  $(adventure.stage).html(adventure.node(name).html);
+  // Update the notes
+  if (typeof(adventure.notepad) != "undefined") {
+    adventure.notepad.setNotes(adventure.node(name).notes);
+  }
 }
 
 Adventure.prototype.setRootTemplate = function(template) {
@@ -21,6 +25,10 @@ Adventure.prototype.setRootTemplate = function(template) {
 
 Adventure.prototype.setStage = function(stage) {
   this.stage = stage;
+};
+
+Adventure.prototype.setNotePad = function(notepad) {
+  this.notepad = notepad;
 };
 
 Adventure.prototype.root = function() {
@@ -43,6 +51,10 @@ Adventure.prototype.root = function() {
   return template(this.map);
 };
 
-Adventure.prototype.node = function() {
-  return {html: "<img src='resources/airport-queue.jpg' width='100%'/>"};
+Adventure.prototype.node = function(name) {
+
+  var nodes = $.grep(this.map.options, function(n){ return n.name === name; });
+
+  return {html: "<img src='resources/airport-queue.jpg' width='100%'/>",
+          notes: nodes[0].notes};
 };
