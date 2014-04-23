@@ -1,4 +1,11 @@
-var adventure_map = {"options":[
+var adventure_map = {
+      "root": ["queueing-strategies",
+               "limit-wip",
+               "make-the-work-visible",
+               "create-options",
+               "batch-sizes",
+               "feedback"],
+      "options":[
         {
           "name": "queueing-strategies",
           "title": "Queueing Strategies",
@@ -36,19 +43,31 @@ var adventure_map = {"options":[
           "links": ["individual-responsibility", "habits", "limiting-queue-lengths", "a-function-of-maturity", "round-robin-scheduling"]
         },
         {
+            "name": "make-the-work-visible",
             "title": "Make the Work Visible",
             "background-color": "lightblue"
         },
         {
+            "name": "create-options",
             "title": "Create Options",
             "background-color": "lightyellow"
         },
         {
+            "name": "batch-sizes",
             "title": "Batch Sizes",
             "background-color": "pink"
         },
         {
+            "name": "feedback",
             "title": "Feedback",
             "background-color": "lightgreen"
+        },
+        {
+            "name": "predict-throughput",
+            "title": "Predict Throughput",
+            "content": {
+              "image": "resources/placeholder.jpg"
+            },
+            "notes": ["How quickly are we going to get through this?"]
         }
     ]};

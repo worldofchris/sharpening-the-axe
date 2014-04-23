@@ -1,12 +1,20 @@
 function Adventure(map) {
   this.map = map;
   this.root_template =
-  ['{{#options}}',
+  ['{{#.}}',
      '<div id="{{title}}" class="col-md-4 center" style="background-color: {{background-color}};min-height: 180px;">',
      '<h1><a href="{{nav name}}">{{title}}</a></h1>',
      '</div>',
-     '{{/options}}'
+     '{{/.}}'
     ].join('\n');
+
+  this.links_template =
+  ['{{#.}}',
+   '<div id="{{.}}" class="col-md-3">',
+   '{{{link .}}}',
+   '</div>',
+   '{{/.}}'
+  ].join('\n');
 }
 
 function navigate(name, adventure) {
@@ -32,12 +40,13 @@ Adventure.prototype.setNotePad = function(notepad) {
 
 Adventure.prototype.root = function() {
 
-  var options_menu_template = this.root_template;
   var self = this; // It's all about the context...
 
   Handlebars.registerHelper('nav', function(name) {
 
     // Crossroads is global - is this a good idea?
+    // Have I got this right? Do I need to add a route for every name or
+    // is {name} a parameter?
     crossroads.addRoute('/node/{name}', function(name) {
       navigate(name, self);
     });
@@ -45,14 +54,20 @@ Adventure.prototype.root = function() {
     return '#/node/' + name;
   });
 
-  var template = Handlebars.compile(options_menu_template);
+  var root_options = $.grep(this.map.options, function(n){ return $.inArray(n.name, self.map.root) != -1;});
 
-  return template(this.map);
+  console.log(root_options);
+
+  var template = Handlebars.compile(this.root_template);
+
+  return template(root_options);
 };
 
 Adventure.prototype.node = function(name) {
 
   var nodes = $.grep(this.map.options, function(n){ return n.name === name; });
+
+  var self = this;
 
   if (nodes.length > 0) {
     
@@ -61,7 +76,25 @@ Adventure.prototype.node = function(name) {
     if (typeof(nodes[0].notes) !== 'undefined') {
       notes = nodes[0].notes.join('<br/>');
     }
-    return {html: "<img src='" + nodes[0].content.image + "'width='100%'/>",
+
+    html = "<img src='" + nodes[0].content.image + "'width='100%'/>";
+
+    if (typeof(nodes[0].links) !== 'undefined') {
+      var template = Handlebars.compile(this.links_template);
+      Handlebars.registerHelper('link', function(name) {
+        var linked_nodes = $.grep(self.map.options, function(n){ return n.name === name; });
+        if (linked_nodes.length > 0) {
+          crossroads.addRoute('/node/{name}', function(name) {
+            navigate(name, self);
+          });
+          return '<a href="#/node/' + name + '">' +   linked_nodes[0].title + '</a>';
+        }
+        return name;
+      });
+      links = template(nodes[0].links);
+      html = html + links;
+    }
+    return {html: html,
             notes: notes};
   }
 };

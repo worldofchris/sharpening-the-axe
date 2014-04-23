@@ -5,27 +5,35 @@ describe("Adventure", function() {
   beforeEach(function() {
 
     // Given some options
-    var map = {"options":[
+    var map = {
+      "root": ["airports", "fresh-fruit-juice", "art-history"],
+      "options":[
         {
-            "name":  "airports",
-            "title": "Airports",
-            "content": {
-              "image": "resources/airport-queue.jpg"
-            },
-            "notes": ["Who can tell me what this is?  It's an example of a dysfunctional queuing strategy." +
-                      "Why is it dusfunctional?  Because an airline employee has to keep expediting by   " +
-                      "shouting the names of closing flights and pulling people to the front of the queue"],
+          "name":  "airports",
+          "title": "Airports",
+          "content": {
+            "image": "resources/airport-queue.jpg"
+          },
+          "notes": ["Who can tell me what this is?  It's an example of a dysfunctional queuing strategy." +
+                    "Why is it dusfunctional?  Because an airline employee has to keep expediting by   " +
+                    "shouting the names of closing flights and pulling people to the front of the queue"],
+          "links": ["art-history", "limit-queue-sizes", "make-the-work-visible", "feedback"]
         },
         {
-            "name":  "fresh-fruit-juice",
-            "title": "Fresh Fruit Juice",
-            "content": {
-              "image": "resources/fresh-fruit-juice.jpg"
-            },
-            "notes": ["Man I love Fresh Fruit Juice"]
+          "name":  "fresh-fruit-juice",
+          "title": "Fresh Fruit Juice",
+          "content": {
+            "image": "resources/fresh-fruit-juice.jpg"
+          },
+          "notes": ["Man I love Fresh Fruit Juice"]
+          },
+        {
+          "name": "art-history",
+          "title": "Art History"
         },
         {
-            "title": "Art History"
+          "name": "make-the-work-visible",
+          "title": "Make the Work Visible"
         }
     ]};
 
@@ -35,7 +43,7 @@ describe("Adventure", function() {
   it("should give me some options for my adventure to begin", function() {
 
     // And a template
-    adventure.setRootTemplate("{{#options}}|{{title}}{{/options}}|");
+    adventure.setRootTemplate("{{#.}}|{{title}}{{/.}}|");
 
     // I should see this at the root / start of my adventure
     var expected_html = "|Airports|Fresh Fruit Juice|Art History|";
@@ -100,4 +108,19 @@ describe("Adventure", function() {
     expect(node).toBeUndefined();
   });
 
+  it("should give me some options to continue my adventure", function() {
+
+    var stage = sandbox();
+    adventure.setStage(stage);
+    navigate('airports', adventure);
+
+    // Make thse a loop?
+    expect(stage).toContainElement('div#art-history');
+    expect(stage).toContainElement('div#limit-queue-sizes');
+    expect(stage).toContainElement('div#make-the-work-visible');
+    expect(stage).toContainElement('div#feedback');
+  });
+
 });
+
+
