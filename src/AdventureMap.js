@@ -66,8 +66,9 @@ var adventure_map = {
             "name": "predict-throughput",
             "title": "Predict Throughput",
             "content": {
-              "image": "resources/placeholder.jpg"
+              "image": "resources/cumulative-throughput.jpg"
             },
-            "notes": ["How quickly are we going to get through this?"]
+            "notes": ["How quickly are we going to get through this?",
+                      ""]
         }
     ]};

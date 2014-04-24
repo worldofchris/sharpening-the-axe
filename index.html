@@ -7,20 +7,26 @@
 <!-- Optional theme -->
 <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">
 
+<link rel="stylesheet" href="resources/css/flipclock.css">
 </head>
 <body>
     <div class="container">
         <h1>Kanban: Choose Your own Adventure</h1>
-        <div class="row" id="stage">
+        <div class="row" id="stage" style="height:600">
         </div>
-        <h2>Time Remaining: 45:00</h2>
-        <h3><a href="#" id="notes">Notes</a></h3>
+        <div>
+            <h3><a href="#" id="notes">Notes</a></h3>
+        </div>
+        <div class="row">
+            <div class="clock" style="float:right"></div>
+        </div>
     </div>
     <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
     <script type="text/javascript" src="lib/handlebars-v1.3.0.js"></script>
 
     <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
 
+    <script src="lib/flipclock.js"></script>
 
     <script src="lib/signals.js"></script>
     <script src="lib/hasher.js"></script>
@@ -63,6 +69,16 @@
                 notepad.show();
             });
 
+            var clock = $('.clock').FlipClock(45, {
+                clockFace: 'Counter'
+            });
+
+            setTimeout(function() {
+                setInterval(function() {
+                    clock.decrement();
+                }, 1000 * 60);
+            });
+            clock.start();
         })        
 
     </script>
