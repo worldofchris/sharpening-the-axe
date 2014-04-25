@@ -11,7 +11,7 @@
 </head>
 <body>
     <div class="container">
-        <div class="row">
+        <div class="row" id="header">
             <h1>Kanban: Choose Your own Adventure</h1>
         </div>
         <div class="row" id="stage" style="height:600">
@@ -50,6 +50,7 @@
             var adventure = new Adventure(adventure_map);
 
             adventure.setStage($("#stage"));
+            adventure.setTitleHeader($("#header"));
             adventure.setNotePad(notepad);
 
             $("#stage").html(adventure.root());
@@ -58,6 +59,7 @@
 
             crossroads.addRoute('/', function() {
                   $("#stage").html(adventure.root());
+                  $("#header").html("<h1>Kanban: Choose Your own Adventure</h1>");
             });
 
             function parseHash(newHash, oldHash){

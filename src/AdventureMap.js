@@ -30,7 +30,7 @@ var adventure_map = {
                     "Stop Starting, Start Finishing has become a mantra for me and one that I apply out of habit",
                     "whenever a context switch looms",
                     "What is the cost of not finishing what I'm doing now?"],
-          "links": ["watermelon-in-progress", "individual-responsibility", "habits"]
+          "links": ["watermelon-in-progress", "individual-responsibility", "wip-limits-on-board"]
         },
         {
           "name": "manage-flow",
@@ -47,7 +47,7 @@ var adventure_map = {
                     " * No one knows whether they will get to the head of the queue in time",
                     " * We don't know the length of the queue",
                     " * These screens aren't doing anything to help either"],
-          "links": ["predict-throughput", "limit-queue-sizes", "batch-sizes", "whack-a-mole"]
+          "links": ["batch-sizes", "limit-queue-sizes", "predict-throughput"]
         },
         {
             "name": "create-options",
@@ -60,7 +60,7 @@ var adventure_map = {
         },
         {
             "name": "batch-sizes",
-            "title": "Batch Sizes",
+            "title": "Limit Batch Sizes",
             "links": ["batch-one", "apple-production-method", "apple-juice-feedback"],
             "background-color": "pink",
             "content": {
@@ -83,7 +83,7 @@ var adventure_map = {
         },
         {
             "name": "predict-throughput",
-            "title": "Predict Throughput",
+            "title": "Predictable Throughput",
             "content": {
               "image": "resources/cumulative-throughput.jpg"
             },
@@ -199,7 +199,7 @@ var adventure_map = {
         {
             "name": "multi-maps",
             "title": "Map of the World",
-            "links": "impact-map",
+            "links": ["impact-map", "who-works-on-what"],
             "content": {
               "image": "resources/multi-maps.jpg"
             }
@@ -229,6 +229,7 @@ var adventure_map = {
         {
             "name": "act-on-the-system",
             "title": "Act on the System",
+            "links": ["habits"],
             "content": {
               "image": "resources/broken-windows.jpg"
             }
@@ -239,5 +240,18 @@ var adventure_map = {
             "content": {
               "image": "resources/manage-queues.jpg"
             }
-        }
-    ]};
+        },
+        {
+            "name": "habits",
+            "title": "Habits",
+            "content": {
+              "image": "resources/power-of-safety.jpg"
+            }
+        },
+        {
+            "name": "wip-limits-on-board",
+            "title": "Setting WIP Limits",
+            "content": {
+              "image": "resources/kanban-board-wip-limits.jpg"
+            }
+        }    ]};

@@ -20,6 +20,8 @@ function Adventure(map) {
 function navigate(name, adventure) {
   // Navigate to the given node
   $(adventure.stage).html(adventure.node(name).html);
+  // Upodate the Title Header
+  $(adventure.title_header).html('<h1 id="node-title-header">' +  adventure.node(name).title  + '</h1>');
   // Update the notes
   if (typeof(adventure.notepad) != "undefined") {
     adventure.notepad.setNotes(adventure.node(name).notes);
@@ -32,6 +34,10 @@ Adventure.prototype.setRootTemplate = function(template) {
 
 Adventure.prototype.setStage = function(stage) {
   this.stage = stage;
+};
+
+Adventure.prototype.setTitleHeader = function(title_header) {
+  this.title_header = title_header;
 };
 
 Adventure.prototype.setNotePad = function(notepad) {
@@ -56,6 +62,8 @@ Adventure.prototype.root = function() {
 
   var root_options = $.grep(this.map.options, function(n){ return $.inArray(n.name, self.map.root) != -1;});
 
+
+
   console.log(root_options);
 
   var template = Handlebars.compile(this.root_template);
@@ -72,9 +80,16 @@ Adventure.prototype.node = function(name) {
   if (nodes.length > 0) {
     
     var notes;
+    var title;
 
     if (typeof(nodes[0].notes) !== 'undefined') {
       notes = nodes[0].notes.join('<br/>');
+    }
+
+    if (typeof(nodes[0].title) !== 'undefined') {
+      title = nodes[0].title;
+    } else {
+      title = nodes[0].name;
     }
 
     if (typeof(nodes[0].content) !== 'undefined') {
@@ -99,6 +114,7 @@ Adventure.prototype.node = function(name) {
       html = html + links;
     }
     return {html: html,
-            notes: notes};
+            notes: notes,
+            title: title};
   }
 };

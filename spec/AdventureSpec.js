@@ -132,6 +132,14 @@ describe("Adventure", function() {
 
   });
 
+  it("should display the title of the current content", function() {
+    var title_header = sandbox();
+    adventure.setTitleHeader(title_header);
+    navigate('art-history', adventure);
+    expect(title_header).toContainElement('#node-title-header');
+    expect(title_header.find('#node-title-header')).toContainText('Art History');
+  });
+
 });
 
 
