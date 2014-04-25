@@ -7,7 +7,12 @@ function Notepad() {
 }
 
 Notepad.prototype.setNotes = function(notes) {
-  this.notes = this.converter.makeHtml(notes);
+  if (typeof notes === 'undefined') {
+    this.notes = "Missing Notes";
+  } else {
+    this.notes = this.converter.makeHtml(notes);
+  }
+  
   if (typeof this.popup != "undefined") {
     $(this.popup.document.body).html(this.notes);
   }
