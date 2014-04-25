@@ -121,6 +121,17 @@ describe("Adventure", function() {
     expect(stage).toContainElement('div#feedback');
   });
 
+  it("should just display the title if there is no content", function() {
+
+    var stage = sandbox();
+    adventure.setStage(stage);
+    navigate('art-history', adventure);
+
+    expect(stage).toContainElement('#node-title');
+    expect(stage.find('#node-title')).toContainText('Art History');
+
+  });
+
 });
 
 

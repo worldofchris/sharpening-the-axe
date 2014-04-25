@@ -77,7 +77,11 @@ Adventure.prototype.node = function(name) {
       notes = nodes[0].notes.join('<br/>');
     }
 
-    html = "<img src='" + nodes[0].content.image + "'width='100%'/>";
+    if (typeof(nodes[0].content) !== 'undefined') {
+      html = "<img src='" + nodes[0].content.image + "'width='100%'/>";
+    } else {
+      html = "<h1 id='node-title'>" + nodes[0].title + "</h1>";
+    }
 
     if (typeof(nodes[0].links) !== 'undefined') {
       var template = Handlebars.compile(this.links_template);

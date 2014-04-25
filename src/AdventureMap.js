@@ -45,12 +45,21 @@ var adventure_map = {
         {
             "name": "make-the-work-visible",
             "title": "Make the Work Visible",
-            "background-color": "lightblue"
+            "background-color": "lightblue",
+            "links": ["maltese-air-defence", "story-map", "feedback", "availability-heuristic"],
+            "notes": ["This is not just about the Kanban board",
+                      "When work is visible on the Kanban board it becomes more apparent",
+                      "what work, or aspects of the work are still invisible",
+                      "and the Kanban board is not necessarily the solution for this"]
         },
         {
             "name": "create-options",
             "title": "Create Options",
-            "background-color": "lightyellow"
+            "background-color": "lightyellow",
+            "notes": ["This is not strictly speaking part of Kanban with a capital K",
+                      "But Kanban helps you create options, helps you keep your options",
+                      "open for longer by deffering commitment to the last responsible moment"],
+            "links": ["oranges", "apples"]
         },
         {
             "name": "batch-sizes",
@@ -60,6 +69,12 @@ var adventure_map = {
         {
             "name": "feedback",
             "title": "Feedback",
+            "content": {
+              "image": "resources/failing-tests.jpg"
+            },
+            "notes": ["All software is Proof Of Concept",
+                      "TDD enables you to endlessly defer commitment",
+                      "It is _soft_ ware after all."],
             "background-color": "lightgreen"
         },
         {
@@ -70,5 +85,21 @@ var adventure_map = {
             },
             "notes": ["How quickly are we going to get through this?",
                       ""]
+        },
+        {
+            "name": "story-map",
+            "title": "Story Map",
+            "links": "stateful-story-map"
+        },
+        {
+            "name": "availability-heuristic",
+            "title": "Availability Heuristic",
+            "links": ["durers-rhino", "thinking-fast-and-slow", "impact-maps", "partial-adoption"]
+        },
+        {
+            "name": "impact-maps",
+            "title": "Impact Maps",
+            "links": ["forked-impact-map"]
         }
+
     ]};
