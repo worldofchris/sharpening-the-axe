@@ -100,7 +100,7 @@ var adventure_map = {
             },
             "notes": ["How quickly are we going to get through this?",
                       ""]
-        },        
+        },   
         {
             "name": "new-cfd",
             "title": "New CFD",
@@ -225,11 +225,24 @@ var adventure_map = {
         {
             "name": "impact-map",
             "title": "Why are we doing this?",
+            "links": ["who-works-on-what", "monitoring-story-map"],
             "content": {
               "image": "resources/impact-map.jpg"
             }
         },
         {
+            "name": "monitoring-story-map",
+            "title": "Monitoring Story Map",
+            "content": {
+              "image": "resources/story-map.jpg"
+            }
+        },        {
+            "name": "who-works-on-what",
+            "title": "Who works on what?",
+            "content": {
+              "image": "resources/skills-matrix.jpg"
+            }
+        },        {
             "name": "watermelon-in-progress",
             "title": "WIP",
             "content": {
