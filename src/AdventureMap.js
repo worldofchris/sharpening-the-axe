@@ -2,7 +2,8 @@ var adventure_map = {
       "root": ["creds", "blank1", "blank2",
                "make-the-work-visible",
                "limit-wip",
-               "manage-flow"],
+               "manage-flow",
+               "blank3", "blank4", "thanks"],
       "options":[
         {
             "name": "creds",
@@ -131,6 +132,14 @@ var adventure_map = {
             "name": "story-map",
             "title": "Story Map",
             "content": {
+              "image": "resources/story-map-about.jpg"
+            },
+            "links": ["backbone-and-skeleton", "stateful-story-map"]
+        },
+        {
+            "name": "backbone-and-skeleton",
+            "title": "Backbone and Skeleton",
+            "content": {
               "image": "resources/backbone-and-skeleton.jpg"
             },
             "links": ["stateful-story-map"]
@@ -244,9 +253,16 @@ var adventure_map = {
         {
             "name": "impact-map",
             "title": "Why are we doing this?",
-            "links": ["who-works-on-what", "monitoring-story-map"],
+            "links": ["classic-impact-map", "who-works-on-what", "monitoring-story-map"],
             "content": {
               "image": "resources/impact-map.jpg"
+            }
+        },
+        {
+            "name": "classic-impact-map",
+            "title": "Impact Map",
+            "content": {
+              "image": "resources/classic-impact-map.jpg"
             }
         },
         {
@@ -319,4 +335,58 @@ var adventure_map = {
             "content": {
               "image": "resources/kanban-board-wip-limits.jpg"
             }
-        }    ]};
+        },
+        {
+            "name": "blank3",
+            "title": "",
+            "background-color": "white"
+        },
+        {
+            "name": "blank4",
+            "title": "",
+            "background-color": "white"
+        },
+        {
+            "name": "thanks",
+            "title": "...and finally",
+            "background-color": "lightgrey",
+            "links": ["african-rhino", "heath-rhino"],
+            "content": {
+              "image": "resources/durer-rhino.jpg"
+            }
+        },
+        {
+            "name": "african-rhino",
+            "title": "African Rhino",
+            "background-color": "lightgrey",
+            "content": {
+              "image": "resources/african-rhino.jpg"
+            }
+        },
+        {
+            "name": "heath-rhino",
+            "title": "Heath's Rhino",
+            "links": "three-rhinos",
+            "background-color": "lightgrey",
+            "content": {
+              "image": "resources/heath-rhino.jpg"
+            }
+        },
+        {
+            "name": "three-rhinos",
+            "title": "Three Rhinos",
+            "links": "the-end",
+            "background-color": "lightgrey",
+            "content": {
+              "image": "resources/three-rhinos.jpg"
+            }
+        },
+        {
+            "name": "the-end",
+            "title": "The End",
+            "background-color": "lightgrey",
+            "content": {
+              "image": "resources/don-quote.jpg"
+            }
+        }        
+      ]};
