@@ -1,8 +1,27 @@
 var adventure_map = {
-      "root": ["make-the-work-visible",
+      "root": ["creds", "blank1", "blank2",
+               "make-the-work-visible",
                "limit-wip",
                "manage-flow"],
       "options":[
+        {
+            "name": "creds",
+            "title": "Credentials",
+            "background-color": "lightgrey",
+            "content": {
+                "image": "resources/creds.jpg"
+            }
+        },
+        {
+            "name": "blank1",
+            "title": "",
+            "background-color": "white"
+        },        
+        {
+            "name": "blank2",
+            "title": "",
+            "background-color": "white"
+        },
         {
             "name": "make-the-work-visible",
             "title": "Visualize",
