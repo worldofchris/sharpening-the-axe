@@ -5,7 +5,7 @@ var adventure_map = {
       "options":[
         {
             "name": "make-the-work-visible",
-            "title": "Make the Work Visible",
+            "title": "Visualize",
             "background-color": "lightblue",
             "content": {
               "image": "resources/bits-on-a-disc.jpg"
@@ -114,7 +114,7 @@ var adventure_map = {
             "content": {
               "image": "resources/backbone-and-skeleton.jpg"
             },
-            "links": ["maltese-air-defence", "stateful-story-map"]
+            "links": ["stateful-story-map"]
         },
         {
             "name": "availability-heuristic",
