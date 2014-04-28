@@ -35,7 +35,7 @@ var adventure_map = {
         {
           "name": "manage-flow",
           "title": "Manage Flow",
-          "background-color": "red",
+          "background-color": "pink",
           "content": {
             "image": "resources/airport-queue.jpg"
           },
@@ -83,12 +83,30 @@ var adventure_map = {
         },
         {
             "name": "predict-throughput",
-            "title": "Predictable Throughput",
+            "title": "Predict Throughput",
+            "links": ["new-project-throughput"],
             "content": {
-              "image": "resources/cumulative-throughput.jpg"
+              "image": "resources/historic-throughput.jpg"
             },
             "notes": ["How quickly are we going to get through this?",
                       ""]
+        },
+        {
+            "name": "new-project-throughput",
+            "title": "New Project Throughput",
+            "links": "new-cfd",
+            "content": {
+              "image": "resources/new-throughput.jpg"
+            },
+            "notes": ["How quickly are we going to get through this?",
+                      ""]
+        },        
+        {
+            "name": "new-cfd",
+            "title": "New CFD",
+            "content": {
+              "image": "resources/new-cfd.jpg"
+            }
         },
         {
             "name": "story-map",
@@ -237,11 +255,26 @@ var adventure_map = {
         {
             "name": "limit-queue-sizes",
             "title": "Limit Queue Sizes",
+            "links": "ca-done-gap",
             "content": {
-              "image": "resources/manage-queues.jpg"
+              "image": "resources/historic-cfd.jpg"
             }
         },
         {
+            "name": "ca-done-gap",
+            "title": "The Gap",
+            "links": "close-ca-done-gap",
+            "content": {
+              "image": "resources/historic-customer-approval-1.jpg"
+            }
+        },        
+        {
+            "name": "close-ca-done-gap",
+            "title": "Closing the Gap",
+            "content": {
+              "image": "resources/historic-customer-approval.jpg"
+            }
+        },        {
             "name": "habits",
             "title": "Habits",
             "content": {

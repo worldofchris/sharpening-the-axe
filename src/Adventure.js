@@ -11,7 +11,7 @@ function Adventure(map) {
   this.links_template =
   ['{{#.}}',
    '<div id="{{.}}" class="col-md-3">',
-   '{{{link .}}}',
+   '<h2>{{{link .}}}</h2>',
    '</div>',
    '{{/.}}'
   ].join('\n');
