@@ -11,6 +11,7 @@ describe("Adventure", function() {
         {
           "name":  "airports",
           "title": "Airports",
+          "position": {"left": "10px", "top": "20px"},
           "content": {
             "image": "resources/airport-queue.jpg"
           },
@@ -38,6 +39,7 @@ describe("Adventure", function() {
     ]};
 
     adventure = new Adventure(map);
+    crossroads.removeAllRoutes();
   });
 
   it("should give me some options for my adventure to begin", function() {
@@ -49,6 +51,17 @@ describe("Adventure", function() {
     var expected_html = "|Airports|Fresh Fruit Juice|Art History|";
 
     expect(adventure.root()).toEqual(expected_html);
+
+  });
+
+  it("should arrange the options as if they were pinned to a wall", function() {
+
+    var stage = sandbox();
+    adventure.setStage(stage);
+    start(adventure);
+    expect(stage).toContainElement('#Airports');
+    var airports = stage.find('#Airports');
+    expect(airports).toHaveCss({'left': '10px'});
 
   });
 

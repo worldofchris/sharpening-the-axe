@@ -2,7 +2,7 @@ function Adventure(map) {
   this.map = map;
   this.root_template =
   ['{{#.}}',
-     '<div id="{{title}}" class="col-md-4 center" style="background-color: {{background-color}};min-height: 180px;">',
+     '<div id="{{title}}" style="position: absolute; left: {{position.left}}; top: {{position.top}}; background-color: {{background-color}};min-height: 180px;">',
      '<h1><a href="{{nav name}}">{{title}}</a></h1>',
      '</div>',
      '{{/.}}'
@@ -15,6 +15,13 @@ function Adventure(map) {
    '</div>',
    '{{/.}}'
   ].join('\n');
+}
+
+// Looking at this code now I don't know why navigte is not part of Adventure
+// itself.
+
+function start(adventure) {
+  $(adventure.stage).html(adventure.root());
 }
 
 function navigate(name, adventure) {
@@ -61,10 +68,6 @@ Adventure.prototype.root = function() {
   });
 
   var root_options = $.grep(this.map.options, function(n){ return $.inArray(n.name, self.map.root) != -1;});
-
-
-
-  console.log(root_options);
 
   var template = Handlebars.compile(this.root_template);
 
