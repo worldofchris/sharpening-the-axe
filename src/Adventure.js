@@ -3,7 +3,7 @@ function Adventure(map) {
   this.root_template =
   ['{{#.}}',
      '<div id="{{title}}" style="position: absolute; left: {{position.left}}; top: {{position.top}}; background-color: {{background-color}};min-height: 40px;">',
-     '<a href="{{nav name}}">{{title}}</a>',
+     '<a href="{{nav name}}"><img src="{{content.thumbnail}}" alt="{{title}}"/></a>',
      '</div>',
      '{{/.}}'
     ].join('\n');

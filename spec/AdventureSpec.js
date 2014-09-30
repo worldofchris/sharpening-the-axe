@@ -13,7 +13,8 @@ describe("Adventure", function() {
           "title": "Airports",
           "position": {"left": "10px", "top": "20px"},
           "content": {
-            "image": "resources/airport-queue.jpg"
+            "image": "assets/fullsize/prototype-informs-ux.jpg",
+            "thumbnail": "assets/thumbnails/prototype-informs-ux.jpg"
           },
           "notes": ["Who can tell me what this is?  It's an example of a dysfunctional queuing strategy." +
                     "Why is it dusfunctional?  Because an airline employee has to keep expediting by   " +
@@ -24,7 +25,7 @@ describe("Adventure", function() {
           "name":  "fresh-fruit-juice",
           "title": "Fresh Fruit Juice",
           "content": {
-            "image": "resources/fresh-fruit-juice.jpg"
+            "image": "assets/fullsize/prototype-informs-ux.jpg"
           },
           "notes": ["Man I love Fresh Fruit Juice"]
           },
@@ -51,6 +52,17 @@ describe("Adventure", function() {
     var expected_html = "|Airports|Fresh Fruit Juice|Art History|";
 
     expect(adventure.root()).toEqual(expected_html);
+
+  });
+
+  it("should display a thumbnail for the option if one is available", function() {
+
+    var stage = sandbox();
+    adventure.setStage(stage);
+    start(adventure);
+    expect(stage).toContainElement('#Airports');
+    var airports = stage.find('#Airports');
+    expect(airports).toContainElement('img');
 
   });
 
@@ -89,7 +101,7 @@ describe("Adventure", function() {
     // The content image should be displayed
 
     expect(airports).toContainElement('img');
-    expect(airports.find('img')).toHaveAttr('src', 'resources/airport-queue.jpg');
+    expect(airports.find('img')).toHaveAttr('src', 'assets/fullsize/prototype-informs-ux.jpg');
 
     // This should work for multiple nodes
 
@@ -97,7 +109,7 @@ describe("Adventure", function() {
     // The content image should be displayed
 
     expect(fruit_juice).toContainElement('img');
-    expect(fruit_juice.find('img')).toHaveAttr('src', 'resources/fresh-fruit-juice.jpg');
+    expect(fruit_juice.find('img')).toHaveAttr('src', 'assets/fullsize/prototype-informs-ux.jpg');
 
 
   });
