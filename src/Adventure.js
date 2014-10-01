@@ -2,7 +2,7 @@ function Adventure(map) {
   this.map = map;
   this.root_template =
   ['{{#.}}',
-     '<div id="{{title}}" style="position: absolute; left: {{position.left}}; top: {{position.top}}; background-color: {{background-color}};min-height: 40px;">',
+     '<div id="{{name}}" class="option" style="position: absolute; left: {{position.left}}; top: {{position.top}}; background-color: {{background-color}};min-height: 40px;">',
      '<a href="{{nav name}}"><img src="{{content.thumbnail}}" alt="{{title}}"/></a>',
      '</div>',
      '{{/.}}'
@@ -49,6 +49,17 @@ Adventure.prototype.setTitleHeader = function(title_header) {
 
 Adventure.prototype.setNotePad = function(notepad) {
   this.notepad = notepad;
+};
+
+Adventure.prototype.draggable = function(decorate_function) {
+  for (var i=0; i < this.map.root.length; i++) {
+
+
+        var option = document.getElementById(this.map.root[i]);
+        // var option = this.stage.find('#' + this.map.root[i]);
+        console.log(option);
+        interact(option).draggable({onmove: decorate_function}).inertia(true);
+      }
 };
 
 Adventure.prototype.root = function() {

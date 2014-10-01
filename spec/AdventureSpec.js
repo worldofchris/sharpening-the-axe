@@ -43,6 +43,19 @@ describe("Adventure", function() {
     crossroads.removeAllRoutes();
   });
 
+  it("should let me drag the options around the screen", function() {
+
+    var stage = sandbox();
+    adventure.setStage(stage);
+    start(adventure);
+
+    adventure.draggable();
+    for (var i=0; i < adventure.map.root.length; i++) {
+      var option = stage.find('#' + adventure.map.root[i]);
+      // How do we check that the element has been decorated as movable?
+    }
+  });
+
   it("should give me some options for my adventure to begin", function() {
 
     // And a template
@@ -60,8 +73,8 @@ describe("Adventure", function() {
     var stage = sandbox();
     adventure.setStage(stage);
     start(adventure);
-    expect(stage).toContainElement('#Airports');
-    var airports = stage.find('#Airports');
+    expect(stage).toContainElement('#airports');
+    var airports = stage.find('#airports');
     expect(airports).toContainElement('img');
 
   });
@@ -71,8 +84,8 @@ describe("Adventure", function() {
     var stage = sandbox();
     adventure.setStage(stage);
     start(adventure);
-    expect(stage).toContainElement('#Airports');
-    var airports = stage.find('#Airports');
+    expect(stage).toContainElement('#airports');
+    var airports = stage.find('#airports');
     expect(airports).toHaveCss({'left': '10px'});
 
   });
