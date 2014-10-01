@@ -1,23 +1,25 @@
 var adventure_map = {
-      "root": ["orig-arch",
-               "final-arch",
-               "story-map",
-               "richer-quote",
-               "skype-conversation",
-               "video-conference",
-               "cfd",
-               "aws-impl",
-               "soviet-style",
-               "bash-container",
-               "usage-stats",
-               "screen-shots",
-               "bare-bones-screen-shots",
-               "wire-frame",
-               "social-feedback",
-               "copy-amends",
-               "two-purples",
-               "prototype",
-               "creds"],
+    "root": [
+        {name: "orig-arch", "x": 202, "y": 278},
+        {name: "final-arch", "x": 204, "y": 123},
+        {name: "richer-quote", "x": 202, "y": 449},
+        {name: "story-map", "x": 434, "y": 282},
+        {name: "skype-conversation", "x": 970, "y": 425},
+        {name: "video-conference", "x": 809, "y": 579},
+        {name: "cfd", "x": 433, "y": 551},
+        {name: "aws-impl", "x": 601, "y": 645},
+        {name: "soviet-style", "x": 275, "y": 647},
+        {name: "bash-container", "x": 360, "y": 646},
+        {name: "usage-stats", "x": 1040, "y": 281},
+        {name: "screen-shots", "x": 432, "y": 123},
+        {name: "bare-bones-screen-shots", "x": 432, "y": 209},
+        {name: "wire-frame", "x": 1172, "y": 158},
+        {name: "social-feedback", "x": 1032, "y": 367},
+        {name: "copy-amends", "x": 1443, "y": 159},
+        {name: "two-purples", "x": 897, "y": 654},
+        {name: "prototype", "x": 1430, "y": 700},
+        {name: "creds", "x": 191, "y": 792}
+    ],
       "options":[
         {
             "name": "orig-arch",
@@ -132,24 +134,40 @@ var adventure_map = {
             "name": "screen-shots",
             "title": "Screen Shots",
             "background-color": "lightgreen",
+            "content": {
+                "thumbnail": "assets/thumbnails/screenshots.png",
+                "image": "assets/fullsize/screenshots.png"
+            },
             "position": {"left": "320px", "top": "60px"}
         },
         {
             "name": "bare-bones-screen-shots",
             "title": "Bare Bones Screen Shots",
             "background-color": "orange",
+            "content": {
+                "thumbnail": "assets/thumbnails/bare-bones-screenshots.png",
+                "image": "assets/fullsize/bare-bones-screenshots.png"
+            },
             "position": {"left": "320px", "top": "120px"}
         },
         {
             "name": "wire-frame",
             "title": "Wire Frame",
             "background-color": "orange",
+            "content": {
+                "thumbnail": "assets/thumbnails/wire-frame.png",
+                "image": "assets/fullsize/wire-frame.png"
+            },
             "position": {"left": "420px", "top": "40px"}
         },
         {
             "name": "social-feedback",
             "title": "Social Feedback",
             "background-color": "pink",
+            "content": {
+                "thumbnail": "assets/thumbnails/social-feedback.png",
+                "image": "assets/fullsize/social-feedback.png"
+            },
             "position": {"left": "520px", "top": "40px"}
         },
         {

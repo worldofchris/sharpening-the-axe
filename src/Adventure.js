@@ -54,10 +54,11 @@ Adventure.prototype.setNotePad = function(notepad) {
 Adventure.prototype.draggable = function(decorate_function) {
   for (var i=0; i < this.map.root.length; i++) {
 
+        // This seems messy and un-encapsulated.  How do we get it to work via 
+        // the stage?
 
-        var option = document.getElementById(this.map.root[i]);
-        // var option = this.stage.find('#' + this.map.root[i]);
-        console.log(option);
+        var option = document.getElementById(this.map.root[i].name);
+        // var option = this.stage.find('#' + this.map.root[i].name);
         interact(option).draggable({onmove: decorate_function}).inertia(true);
       }
 };
@@ -78,7 +79,19 @@ Adventure.prototype.root = function() {
     return '#/node/' + name;
   });
 
-  var root_options = $.grep(this.map.options, function(n){ return $.inArray(n.name, self.map.root) != -1;});
+  var root_options = [];
+
+  $.map(self.map.root, function(val, i) {
+
+    var result = self.map.options.filter(function( obj ) {
+      return obj.name == val.name;
+    });
+    result[0].position = {left: val.x, top: val.y}
+    root_options.push(result[0]);
+  });
+
+  // var root_options = $.grep(this.map.options, function(n){ return $.inArray(n.name, self.map.root) != -1;});
+  console.log(root_options);
 
   var template = Handlebars.compile(this.root_template);
 

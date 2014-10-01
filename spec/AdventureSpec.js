@@ -6,7 +6,9 @@ describe("Adventure", function() {
 
     // Given some options
     var map = {
-      "root": ["airports", "fresh-fruit-juice", "art-history"],
+      "root": [{"name": "airports", x: "10px", y: 2},
+               {"name": "fresh-fruit-juice", x: "10px", y: 4},
+               {"name": "art-history", x: "10px", y:6}],
       "options":[
         {
           "name":  "airports",
@@ -51,7 +53,7 @@ describe("Adventure", function() {
 
     adventure.draggable();
     for (var i=0; i < adventure.map.root.length; i++) {
-      var option = stage.find('#' + adventure.map.root[i]);
+      var option = stage.find('#' + adventure.map.root[i].name);
       // How do we check that the element has been decorated as movable?
     }
   });
