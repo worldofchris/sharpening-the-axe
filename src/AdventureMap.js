@@ -1,26 +1,58 @@
 var adventure_map = {
-    "root": [
-        {name: "orig-arch", "x": 202, "y": 278},
-        {name: "final-arch", "x": 204, "y": 123},
-        {name: "richer-quote", "x": 202, "y": 449},
-        {name: "story-map", "x": 434, "y": 282},
-        {name: "skype-conversation", "x": 970, "y": 425},
-        {name: "video-conference", "x": 809, "y": 579},
-        {name: "cfd", "x": 433, "y": 551},
-        {name: "aws-impl", "x": 601, "y": 645},
-        {name: "soviet-style", "x": 275, "y": 647},
-        {name: "bash-container", "x": 360, "y": 646},
-        {name: "usage-stats", "x": 1040, "y": 281},
-        {name: "screen-shots", "x": 432, "y": 123},
-        {name: "bare-bones-screen-shots", "x": 432, "y": 209},
-        {name: "wire-frame", "x": 1172, "y": 158},
-        {name: "social-feedback", "x": 1032, "y": 367},
-        {name: "copy-amends", "x": 1443, "y": 159},
-        {name: "two-purples", "x": 897, "y": 654},
-        {name: "prototype", "x": 1430, "y": 700},
-        {name: "creds", "x": 191, "y": 792}
-    ],
+    "root": [{"name":"finbar","x":557,"y":742},{"name":"bdd-tests","x":887,"y":679},{"name":"beanstalk","x":112,"y":21},{"name":"node-lunch","x":714,"y":615},{"name":"skype-conversation-2","x":414,"y":634},{"name":"agile-manifesto","x":988,"y":46},{"name":"orig-arch","x":198,"y":146},{"name":"final-arch","x":72,"y":147},{"name":"richer-quote","x":99,"y":247},{"name":"story-map","x":328,"y":283},{"name":"skype-conversation","x":858,"y":456},{"name":"video-conference","x":557,"y":615},{"name":"cfd","x":330,"y":549},{"name":"aws-impl","x":557,"y":551},{"name":"soviet-style","x":1112,"y":486},{"name":"bash-container","x":1113,"y":611},{"name":"usage-stats","x":859,"y":282},{"name":"screen-shots","x":326,"y":65},{"name":"bare-bones-screen-shots","x":326,"y":169},{"name":"social-feedback","x":857,"y":361},{"name":"two-purples","x":988,"y":534},{"name":"prototype","x":793,"y":149},{"name":"creds","x":336,"y":634}],
       "options":[
+        {
+            "name": "finbar",
+            "content": {
+                "thumbnail": "assets/thumbnails/finbar.jpg",
+                "image": "assets/fullsize/finbar.jpg"
+            },
+        },
+        {
+            "name": "agile-manifesto",
+            "content": {
+                "thumbnail": "assets/thumbnails/agile-manifesto.jpg",
+                "image": "assets/fullsize/agile-manifesto.jpg"
+            },
+        },
+        {
+            "name": "skype-conversation-2",
+            "content": {
+                "thumbnail": "assets/thumbnails/skype-conversation-2.jpg",
+                "image": "assets/fullsize/skype-conversation-2.jpg"
+            },
+        },
+        {
+            "name": "node-lunch",
+            "content": {
+                "thumbnail": "assets/thumbnails/node-lunch.jpg",
+                "image": "assets/fullsize/node-lunch.jpg"
+            },
+        },
+        {
+            "name": "bdd-tests",
+            "content": {
+                "thumbnail": "assets/thumbnails/bdd-tests.jpg",
+                "image": "assets/fullsize/bdd-tests.jpg"
+            },
+        },
+        {
+            "name": "beanstalk",
+            "content": {
+                "thumbnail": "assets/thumbnails/beanstalk.jpg",
+                "image": "assets/fullsize/beanstalk.jpg"
+            },
+        },
+        {
+            "name": "fullsize",
+            "title": "fullsize guide",
+            "background-color": "lightgrey",
+            "content": {
+                "thumbnail": "assets/thumbnails/actual-size.jpg",
+                "image": "assets/fullsize/fullsize.jpg"
+            },
+            "position": {"left": "10px", "top": "10px"}
+        },
         {
             "name": "orig-arch",
             "title": "Original Architecture",
@@ -76,6 +108,10 @@ var adventure_map = {
             "name": "video-conference",
             "title": "Video Conference",
             "background-color": "pink",
+            "content": {
+                "thumbnail": "assets/thumbnails/video-conference.jpg",
+                "image": "assets/fullsize/video-conference.jpg"
+            },
             "position": {"left": "60px", "top": "250px"}
         },
         {
@@ -86,8 +122,7 @@ var adventure_map = {
                 "thumbnail": "assets/thumbnails/cumulative-flow.png",
                 "image": "assets/fullsize/cumulative-flow.png"
             },
-            "position": {"left": "10px", "top": "250px"},
-            "links": ["batch-slicing", "littles-law", "unacknowledge-fear"]
+            "position": {"left": "10px", "top": "250px"}
         },
         {
             "name": "aws-impl",
@@ -135,8 +170,8 @@ var adventure_map = {
             "title": "Screen Shots",
             "background-color": "lightgreen",
             "content": {
-                "thumbnail": "assets/thumbnails/screenshots.png",
-                "image": "assets/fullsize/screenshots.png"
+                "thumbnail": "assets/thumbnails/screenshots.jpg",
+                "image": "assets/fullsize/screenshots.jpg"
             },
             "position": {"left": "320px", "top": "60px"}
         },
@@ -145,8 +180,8 @@ var adventure_map = {
             "title": "Bare Bones Screen Shots",
             "background-color": "orange",
             "content": {
-                "thumbnail": "assets/thumbnails/bare-bones-screenshots.png",
-                "image": "assets/fullsize/bare-bones-screenshots.png"
+                "thumbnail": "assets/thumbnails/bare-bones-screenshots.jpg",
+                "image": "assets/fullsize/bare-bones-screenshots.jpg"
             },
             "position": {"left": "320px", "top": "120px"}
         },
