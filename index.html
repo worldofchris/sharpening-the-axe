@@ -91,19 +91,24 @@
         }
 
         $(document).ready(function() {
-            var notepad = new Notepad();
             var adventure = new Adventure(adventure_map);
 
             adventure.setStage($("#stage"));
             adventure.setTitleHeader($("#header"));
-            adventure.setNotePad(notepad);
 
             start(adventure);
             // Home means home
 
             crossroads.addRoute('/', function() {
                   start(adventure);
-                  $("#header").html("<h1>Down to the Wire - @worldofchris #agilecam</h1>");
+                  $("#header").html("<h1>Down to the Wire - @worldofchris #agilecam</h1>" +
+                                    "<p>This is the online version of the <i>Mega Poster</i> talk I gave at Agile Cambridge 2014." +
+                                    "It tells the story of a project to make a 'video postcard' maker through the artifacts created and " +
+                                    "pinned to the Project Wall during the two weeks of the project." +
+                                    "<p>In the spirit of the Agile Manifesto " +
+                                    "valuing working software over comprehensive documentation, you can try out the software itself at " +
+                                    "<a href='http://demo.worldofchris.com'>demo.worldofchris.com</a>.</p>" +
+                                    "<p>Click on an artifact to read more about it.</p>");
             });
 
             function parseHash(newHash, oldHash){
@@ -115,10 +120,6 @@
             hasher.changed.add(parseHash); //parse hash changes
              
             hasher.init(); //start listening for hash changes
-
-            $('#notes').click(function() {
-                notepad.show();
-            });
 
             var clock = $('.clock').FlipClock(45, {
                 clockFace: 'Counter'

@@ -29,10 +29,6 @@ function navigate(name, adventure) {
   $(adventure.stage).html(adventure.node(name).html);
   // Upodate the Title Header
   $(adventure.title_header).html('<h1 id="node-title-header">' +  adventure.node(name).title  + '</h1>');
-  // Update the notes
-  if (typeof(adventure.notepad) != "undefined") {
-    adventure.notepad.setNotes(adventure.node(name).notes);
-  }
 }
 
 Adventure.prototype.setRootTemplate = function(template) {
@@ -45,10 +41,6 @@ Adventure.prototype.setStage = function(stage) {
 
 Adventure.prototype.setTitleHeader = function(title_header) {
   this.title_header = title_header;
-};
-
-Adventure.prototype.setNotePad = function(notepad) {
-  this.notepad = notepad;
 };
 
 Adventure.prototype.draggable = function(decorate_function) {

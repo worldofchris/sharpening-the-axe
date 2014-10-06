@@ -129,19 +129,6 @@ describe("Adventure", function() {
 
   });
 
-  it("should pop up the notes so the presenter can see them but not the audience", function() {
-    var notepad = {
-      setNotes: function(notes) {notes = notes;}
-    };
-    spyOn(notepad, 'setNotes');
-
-    adventure.setNotePad(notepad);
-    navigate('airports', adventure);
-
-    expect(notepad.setNotes).toHaveBeenCalledWith("Who can tell me what this is?  It's an example of a dysfunctional queuing strategy.Why is it dusfunctional?  Because an airline employee has to keep expediting by   shouting the names of closing flights and pulling people to the front of the queue");
-
-  });
-
   it("should not explode if there is no content in a node", function() {
 
     var node = adventure.node("does-not-exist");
