@@ -2,7 +2,7 @@ function Adventure(map) {
   this.map = map;
   this.root_template =
   ['{{#.}}',
-     '<div id="{{name}}" class="option" style="position: absolute; left: {{position.left}}; top: {{position.top}}; background-color: white;min-height: 40px;">',
+     '<div id="{{name}}" title="{{title}}" class="option" style="position: absolute; left: {{position.left}}; top: {{position.top}}; background-color: white;min-height: 40px;">',
      '<a href="{{nav name}}"><img src="{{content.thumbnail}}" alt="{{title}}"/></a>',
      '</div>',
      '{{/.}}'
@@ -14,6 +14,10 @@ function Adventure(map) {
    '<h2>{{{link .}}}</h2>',
    '</div>',
    '{{/.}}'
+  ].join('\n');
+
+  this.content_template =
+  ['{{notes}} <img src="{{image}}"/>'
   ].join('\n');
 }
 
@@ -98,12 +102,7 @@ Adventure.prototype.node = function(name) {
 
   if (nodes.length > 0) {
     
-    var notes;
     var title;
-
-    if (typeof(nodes[0].notes) !== 'undefined') {
-      notes = nodes[0].notes.join('<br/>');
-    }
 
     if (typeof(nodes[0].title) !== 'undefined') {
       title = nodes[0].title;
@@ -112,7 +111,10 @@ Adventure.prototype.node = function(name) {
     }
 
     if (typeof(nodes[0].content) !== 'undefined') {
-      html = "<img src='" + nodes[0].content.image + "'width='100%'/>";
+      var content_template = Handlebars.compile(this.content_template);
+
+      html = content_template({image: nodes[0].content.image,
+                               notes: nodes[0].notes});
     } else {
       html = "<h1 id='node-title'>" + nodes[0].title + "</h1>";
     }
@@ -133,7 +135,6 @@ Adventure.prototype.node = function(name) {
       html = html + links;
     }
     return {html: html,
-            notes: notes,
             title: title};
   }
 };

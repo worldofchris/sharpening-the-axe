@@ -24,9 +24,9 @@
 
 </head>
 <body>
-<!--
+
 <a href="https://github.com/worldofchris/down-to-the-wire"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png"></a>
--->
+
     <div class="container" style="margin:10px">
         <div class="row" id="header">
         </div>
@@ -35,23 +35,12 @@
 <!--         <div>
             <h3><a href="http://worldofchris.github.io/down-to-the-wire/">worldofchris.github.io/down-to-the-wire</a> @worldofchris</h3>
         </div>
-        <div>
-            <h3><a href="#/" id="start">Start</a></h3>
-        </div>
-        <div>
-            <h3><a href="#" id="notes">Notes</a></h3>
-            <a href='javascript:dumpCoOrds();'>dump</a>
-        </div>
-        <div class="row">
-            <div class="clock" style="float:right"></div>
-        </div>
- -->    </div>
+-->
+</div>
     <script src="lib/jquery-1.11.0.min.js"></script>
     <script type="text/javascript" src="lib/handlebars-v1.3.0.js"></script>
 
     <script src="lib/bootstrap.min.js"></script>
-
-    <script src="lib/flipclock.js"></script>
 
     <script src="lib/signals.js"></script>
     <script src="lib/hasher.js"></script>
@@ -61,7 +50,6 @@
     <script src="src/AdventureMap.js"></script>
 
     <script src="lib/showdown.js"></script>
-    <script src="src/Notepad.js"></script>
 
     <script src="lib/interact.js"></script>
 
@@ -101,14 +89,7 @@
 
             crossroads.addRoute('/', function() {
                   start(adventure);
-                  $("#header").html("<h1>Down to the Wire - @worldofchris #agilecam</h1>" +
-                                    "<p>This is the online version of the <i>Mega Poster</i> talk I gave at Agile Cambridge 2014." +
-                                    "It tells the story of a project to make a 'video postcard' maker through the artifacts created and " +
-                                    "pinned to the Project Wall during the two weeks of the project." +
-                                    "<p>In the spirit of the Agile Manifesto " +
-                                    "valuing working software over comprehensive documentation, you can try out the software itself at " +
-                                    "<a href='http://demo.worldofchris.com'>demo.worldofchris.com</a>.</p>" +
-                                    "<p>Click on an artifact to read more about it.</p>");
+                  $("#header").html(adventure_map.root_header);
             });
 
             function parseHash(newHash, oldHash){
@@ -120,17 +101,6 @@
             hasher.changed.add(parseHash); //parse hash changes
              
             hasher.init(); //start listening for hash changes
-
-            var clock = $('.clock').FlipClock(45, {
-                clockFace: 'Counter'
-            });
-
-            setTimeout(function() {
-                setInterval(function() {
-                    clock.decrement();
-                }, 1000 * 60);
-            });
-            clock.start();
 
             adventure.draggable(makeDraggable);
 

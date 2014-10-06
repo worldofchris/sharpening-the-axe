@@ -1,8 +1,32 @@
 var adventure_map = {
-    "root": [{"name":"finbar","x":557,"y":742},{"name":"bdd-tests","x":887,"y":679},{"name":"beanstalk","x":112,"y":21},{"name":"node-lunch","x":714,"y":615},{"name":"skype-conversation-2","x":414,"y":634},{"name":"agile-manifesto","x":988,"y":46},{"name":"orig-arch","x":198,"y":146},{"name":"final-arch","x":72,"y":147},{"name":"richer-quote","x":99,"y":247},{"name":"story-map","x":328,"y":283},{"name":"skype-conversation","x":858,"y":456},{"name":"video-conference","x":557,"y":615},{"name":"cfd","x":330,"y":549},{"name":"aws-impl","x":557,"y":551},{"name":"soviet-style","x":1112,"y":486},{"name":"bash-container","x":1113,"y":611},{"name":"usage-stats","x":859,"y":282},{"name":"screen-shots","x":326,"y":65},{"name":"bare-bones-screen-shots","x":326,"y":169},{"name":"social-feedback","x":857,"y":361},{"name":"two-purples","x":988,"y":534},{"name":"prototype","x":793,"y":149},{"name":"creds","x":336,"y":634}],
+    "root_header": "<h1>Down to the Wire - <a href='https://twitter.com/worldofchris'>@worldofchris</a> <a href='https://twitter.com/search?q=%23agilecam'>#agilecam</a></h1>" +
+                    "<p>This is the online version of the <a href='http://agilecambridge.net/ac2014/sessions/index.php?session=36'>Mega Poster Talk</a> I gave at Agile Cambridge 2014. " +
+                    "It tells the story of a project to build a 'video postcard' maker through the artifacts created and " +
+                    "pinned to the <a href='#/node/project-wall'>Project Wall</a> during the two weeks of this fixed date, fixed cost project." +
+                    "<p>In the spirit of the Agile Manifesto " +
+                    "valuing working software over comprehensive documentation, you can try the resulting software out at " +
+                    "<a href='http://agilecam.worldofchris.com'>agilecam.worldofchris.com</a>. and then read about how it was made by exploring the " +
+                    "artifacts below.",
+    "root": [{"name": "finbar","x":557,"y":742},{"name":"bdd-tests","x":887,"y":679},{"name":"beanstalk","x":112,"y":21},{"name":"node-lunch","x":714,"y":615},{"name":"skype-conversation-2","x":414,"y":634},{"name":"agile-manifesto","x":988,"y":46},{"name":"orig-arch","x":198,"y":146},{"name":"final-arch","x":72,"y":147},{"name":"richer-quote","x":99,"y":247},{"name":"story-map","x":328,"y":283},{"name":"skype-conversation","x":858,"y":456},{"name":"video-conference","x":557,"y":615},{"name":"cfd","x":330,"y":549},{"name":"aws-impl","x":557,"y":551},{"name":"soviet-style","x":1112,"y":486},{"name":"bash-container","x":1113,"y":611},{"name":"usage-stats","x":859,"y":282},{"name":"screen-shots","x":326,"y":65},{"name":"bare-bones-screen-shots","x":326,"y":169},{"name":"social-feedback","x":857,"y":361},{"name":"two-purples","x":988,"y":534},{"name":"prototype","x":793,"y":149},{"name":"creds","x":336,"y":634}],
       "options":[
         {
+            "name": "brompton",
+            "title": "Brompton",
+            "content": {
+                "thumbnail": "assets/thumbnails/brompton.png"
+            },
+        },
+        {
+            "name": "project-wall",
+            "title": "Project Wall",
+            "content": {
+                "thumbnail": "assets/thumbnails/finbar.jpg",
+                "image": "assets/project-wall.jpg"
+            },
+        },
+        {
             "name": "finbar",
+            "title": "Finbar",
             "content": {
                 "thumbnail": "assets/thumbnails/finbar.jpg",
                 "image": "assets/fullsize/finbar.jpg"
@@ -10,6 +34,7 @@ var adventure_map = {
         },
         {
             "name": "agile-manifesto",
+            "title": "Agile Manifest",
             "content": {
                 "thumbnail": "assets/thumbnails/agile-manifesto.jpg",
                 "image": "assets/fullsize/agile-manifesto.jpg"
@@ -17,6 +42,7 @@ var adventure_map = {
         },
         {
             "name": "skype-conversation-2",
+            "title": "Ready to launch",
             "content": {
                 "thumbnail": "assets/thumbnails/skype-conversation-2.jpg",
                 "image": "assets/fullsize/skype-conversation-2.jpg"
@@ -24,6 +50,7 @@ var adventure_map = {
         },
         {
             "name": "node-lunch",
+            "title": "Pub Consultancy",
             "content": {
                 "thumbnail": "assets/thumbnails/node-lunch.jpg",
                 "image": "assets/fullsize/node-lunch.jpg"
@@ -31,6 +58,7 @@ var adventure_map = {
         },
         {
             "name": "bdd-tests",
+            "title": "BDD Tests",
             "content": {
                 "thumbnail": "assets/thumbnails/bdd-tests.jpg",
                 "image": "assets/fullsize/bdd-tests.jpg"
@@ -38,6 +66,7 @@ var adventure_map = {
         },
         {
             "name": "beanstalk",
+            "title": "Elastic Beanstalk",
             "content": {
                 "thumbnail": "assets/thumbnails/beanstalk.jpg",
                 "image": "assets/fullsize/beanstalk.jpg"
@@ -89,8 +118,8 @@ var adventure_map = {
             "background-color": "white",
             "position": {"left": "20px", "top": "150px"},
             "content": {
-                "thumbnail": "assets/thumbnails/story-map.png",
-                "image": "assets/fullsize/story-map.png"
+                "thumbnail": "assets/thumbnails/story-map.jpg",
+                "image": "assets/fullsize/story-map.jpg"
             },
             "links": ["discovery-session"]
         },
