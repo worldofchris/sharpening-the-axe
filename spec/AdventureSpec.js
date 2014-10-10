@@ -129,6 +129,15 @@ describe("Adventure", function() {
 
   });
 
+  it("should present the notes along with the content", function() {
+
+  });
+
+  it("should still display content even if there are no notes", function() {
+
+  });
+
+
   it("should not explode if there is no content in a node", function() {
 
     var node = adventure.node("does-not-exist");
@@ -146,6 +155,17 @@ describe("Adventure", function() {
     expect(stage).toContainElement('div#limit-queue-sizes');
     expect(stage).toContainElement('div#make-the-work-visible');
     expect(stage).toContainElement('div#feedback');
+  });
+
+  it("should include a thumbnail image in the links", function() {
+
+    var stage = sandbox();
+    adventure.setStage(stage);
+    navigate('airports', adventure);
+
+    expect(stage).toContainElement('div#art-history');
+    var link = stage.find('div#art-history');
+    expect(link).toContainElement('img');
   });
 
   it("should just display the title if there is no content", function() {

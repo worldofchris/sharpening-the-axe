@@ -9,7 +9,8 @@ function Adventure(map) {
     ].join('\n');
 
   this.links_template =
-  ['{{#.}}',
+  ['<div class="col-md-3"><h2><a href="#/">Home</a></h2></div>' +
+   '{{#.}}',
    '<div id="{{.}}" class="col-md-3">',
    '<h2>{{{link .}}}</h2>',
    '</div>',
@@ -17,7 +18,7 @@ function Adventure(map) {
   ].join('\n');
 
   this.content_template =
-  ['{{notes}} <img src="{{image}}"/>'
+  ['<div class="notes">{{{notes}}}</div><div class="fullsize-image"><img class="img-responsive" src="{{image}}"/></div>'
   ].join('\n');
 }
 
@@ -122,7 +123,10 @@ Adventure.prototype.node = function(name) {
     if (typeof(nodes[0].links) !== 'undefined') {
       var template = Handlebars.compile(this.links_template);
       Handlebars.registerHelper('link', function(name) {
-        var linked_nodes = $.grep(self.map.options, function(n){ return n.name === name; });
+        var linked_nodes = $.grep(self.map.options, function(n) {
+          var linked_node = {name: n.name};
+    return n.name === name; 
+        });
         if (linked_nodes.length > 0) {
           crossroads.addRoute('/node/{name}', function(name) {
             navigate(name, self);
