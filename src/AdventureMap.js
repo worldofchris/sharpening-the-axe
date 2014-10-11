@@ -39,7 +39,11 @@ var adventure_map = {
         {
             "name": "review-by-ops",
             "title": "Review by Ops",
-            "notes": "Git comments on code."
+            "notes": "Git comments on code.",
+            "content": {
+                "thumbnail": "assets/thumbnails/ops-review.jpg",
+                "image": "assets/fullsize/ops-review.jpg"
+            }
         },
         {
             "name": "agile-manifesto",
@@ -48,16 +52,9 @@ var adventure_map = {
                 "thumbnail": "assets/thumbnails/agile-manifesto.jpg",
                 "image": "assets/fullsize/agile-manifesto.jpg"
             },
-            "notes": ['<p>We didn&#39;t actually have the Agile Manifesto on the wall during the project, it was added for the talk ' +
-                      'to see what points of the Manifesto the project reflected.</p>' +
-                      '<p><b>Individuals and Interactions over Processes and Tools</b> - ' +
-                      'The tools were there to enable interactions between individuals.  Matthew talked about this in his talk.  Git enables collaboration.</p>' +
-                      'Working Software over Comprehensive Documentation' +
-                      'We dark launched on Elastic Beanstalk at the start of the project and pushed iterative revisions to the software several times a day.' +
-                      'Customer Collaboration over Contract Negotiation' +
-                      'There was an &#39;Always On&#39; Skype channel between us and the customer and daily video conference calls' +
-                      'Responding to Change over Following a Plan' +
-                      'The two purples, the change to the length of the end frame']
+            "notes": ['<p>We added  the Agile Manifesto to the wall for the the talk ' +
+                      'to see what points of the Manifesto the project made manifest.</p>'],
+            "links": ['skype-conversation', 'skype-conversation-2', 'video-conference', 'two-purples', 'bash-container']
         },
         {
             "name": "skype-conversation-2",
@@ -77,6 +74,7 @@ var adventure_map = {
                 "thumbnail": "assets/thumbnails/node-lunch.jpg",
                 "image": "assets/fullsize/node-lunch.jpg"
             },
+            "links": ['finbar']
         },
         {
             "name": "bdd-tests",
@@ -102,7 +100,7 @@ var adventure_map = {
             "notes": ["<p>Early in the project we decided to go with AWS Elastic Beanstalk.  This effectively took care of provisioning, deployment, scaling and monitoring for us.</p>" +
                       "<p>We did have an issue with the Elastic Beanstalk SQSD daemon which lead us to revise the Systems Architecture but this aside beanstalk was a huge " +
                       "facilitator of speed and agility.</p>"],
-            "links": ["final-arch"]
+            "links": ["final-arch", "orig-arch"]
         },
         {
             "name": "orig-arch",
@@ -229,7 +227,7 @@ var adventure_map = {
                       "heart of the project.  Time and Cost were fixed and getting the 'spine' of functionality done in the time was going to go down to the wire. " +
                       "If in doing this we produced something which ticked all the functional boxes yet was unloved by our customers then no one would have used " +
                       "it and we would have failed.</p>" +
-                      "<p>Getting things like the colour transitions and timings for the end frame right were not merely cosmetic.  They were critical to " +
+                      "<p>Getting things like the <a href='#/node/two-purples'>colour transitions</a> and timings for the end frame right were not merely cosmetic.  They were critical to " +
                       "customer satisfaction and so the success of the project.</p>"]
         },
         {
