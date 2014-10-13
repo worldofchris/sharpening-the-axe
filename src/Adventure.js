@@ -138,7 +138,11 @@ Adventure.prototype.node = function(name) {
           crossroads.addRoute('/node/{name}', function(name) {
             navigate(name, self);
           });
-          return  '<div><img src="' + linked_nodes[0].content.thumbnail + '"/></div>' +
+          var img_src = 'assets/thumbnail/missing.png';
+          if (typeof(linked_nodes[0].content) !== 'undefined') {
+            img_src = linked_nodes[0].content.thumbnail;
+          }
+          return  '<div><img src="' + img_src + '"/></div>' +
                   '<div><a href="#/node/' + name + '">' +   linked_nodes[0].title + '</a></div>';
         }
         return name;

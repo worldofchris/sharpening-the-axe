@@ -27,7 +27,7 @@ describe("Adventure", function() {
           "name":  "fresh-fruit-juice",
           "title": "Fresh Fruit Juice",
           "content": {
-            "image": "assets/fullsize/prototype-informs-ux.jpg"
+            "image": "assets/fullsize/prototype-informs-ux.jpg",
           },
           "notes": ["Man I love Fresh Fruit Juice"]
           },

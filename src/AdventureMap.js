@@ -6,10 +6,10 @@ var adventure_map = {
                     "<p>In the spirit of the Agile Manifesto " +
                     "valuing working software over comprehensive documentation, you can try the resulting software out at " +
                     "<a href='http://agilecam.worldofchris.com'>agilecam.worldofchris.com</a>. and then read about how it was made by exploring the " +
-                    "artifacts below.",
-"root": [{"name":"finbar","x":452,"y":750},{"name":"bdd-tests","x":890,"y":742},{"name":"beanstalk","x":112,"y":21},{"name":"node-lunch","x":577,"y":749},{"name":"skype-conversation-2","x":311,"y":749},{"name":"agile-manifesto","x":988,"y":46},{"name":"orig-arch","x":198,"y":146},{"name":"final-arch","x":72,"y":147},{"name":"richer-quote","x":99,"y":247},{"name":"story-map","x":328,"y":283},{"name":"skype-conversation","x":855,"y":457},{"name":"video-conference","x":735,"y":749},{"name":"cfd","x":330,"y":549},{"name":"aws-impl","x":577,"y":875},{"name":"soviet-style","x":179,"y":405},{"name":"bash-container","x":980,"y":578},{"name":"usage-stats","x":859,"y":282},{"name":"screen-shots","x":326,"y":65},{"name":"bare-bones-screen-shots","x":326,"y":169},{"name":"social-feedback","x":857,"y":361},{"name":"two-purples","x":855,"y":599},{"name":"prototype","x":793,"y":149},{"name":"creds","x":131,"y":740}],
-    // "root": [{"name": "finbar","x":557,"y":742},{"name":"bdd-tests","x":887,"y":679},{"name":"beanstalk","x":112,"y":21},{"name":"node-lunch","x":714,"y":615},{"name":"skype-conversation-2","x":414,"y":634},{"name":"agile-manifesto","x":988,"y":46},{"name":"orig-arch","x":198,"y":146},{"name":"final-arch","x":72,"y":147},{"name":"richer-quote","x":99,"y":247},{"name":"story-map","x":328,"y":283},{"name":"skype-conversation","x":858,"y":456},{"name":"video-conference","x":557,"y":615},{"name":"cfd","x":330,"y":549},{"name":"aws-impl","x":557,"y":551},{"name":"soviet-style","x":1112,"y":486},{"name":"bash-container","x":1113,"y":611},{"name":"usage-stats","x":859,"y":282},{"name":"screen-shots","x":326,"y":65},{"name":"bare-bones-screen-shots","x":326,"y":169},{"name":"social-feedback","x":857,"y":361},{"name":"two-purples","x":988,"y":534},{"name":"prototype","x":793,"y":149},{"name":"creds","x":336,"y":634}],
-      "options":[
+                    "artifacts below.</p>" +
+                    '<i>Run the <a href="SpecRunner.html">tests</a> for this talk.</i>',
+    "root": [{"name":"finbar","x":200,"y":687},{"name":"bdd-tests","x":789,"y":744},{"name":"beanstalk","x":112,"y":19},{"name":"node-lunch","x":471,"y":718},{"name":"skype-conversation-2","x":328,"y":717},{"name":"agile-manifesto","x":988,"y":133},{"name":"orig-arch","x":198,"y":146},{"name":"final-arch","x":72,"y":147},{"name":"richer-quote","x":99,"y":247},{"name":"story-map","x":328,"y":278},{"name":"skype-conversation","x":855,"y":457},{"name":"video-conference","x":634,"y":718},{"name":"cfd","x":328,"y":547},{"name":"aws-impl","x":329,"y":844},{"name":"soviet-style","x":148,"y":407},{"name":"bash-container","x":980,"y":578},{"name":"usage-stats","x":859,"y":282},{"name":"screen-shots","x":326,"y":65},{"name":"bare-bones-screen-shots","x":326,"y":169},{"name":"social-feedback","x":857,"y":361},{"name":"two-purples","x":855,"y":599},{"name":"prototype","x":793,"y":149}],
+    "options":[
         {
             "name": "brompton",
             "title": "Brompton",
@@ -77,7 +77,8 @@ var adventure_map = {
             },
             "notes": ["One of great developers I've worked with in the last few years, first at YouView and then at Base79 is " +
                       "Dave Spanton, aka <a href='https://twitter.com/megastoat'>@megastoat</a>.  Knowing he is a great Node head I " +
-                      "caught up with him over lunch to exchange notes on how I was approaching the code."],
+                      "caught up with him over lunch to exchange notes on how I was approaching the code. Programming is a social activity " +
+                      "engaging with a wider community of practice is how you keep up to date and improve your skills."],
             "links": ['finbar']
         },
         {
