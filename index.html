@@ -84,9 +84,11 @@
         function dumpCoOrds() {
             var details = [];
             $( ".option" ).each(function( index ) {
+              var x_offset = parseInt(($(this).attr('data-x'))) || 0;
+              var y_offset = parseInt(($(this).attr('data-y'))) || 0;
               detail = {name: $(this).attr('id'), 
-                        x: parseInt($(this).css('left').substring(0, $(this).css('left').length-2)),
-                        y: parseInt($(this).css('top').substring(0, $(this).css('top').length-2))}
+                        x: parseInt($(this).css('left').substring(0, $(this).css('left').length-2)) + x_offset,
+                        y: parseInt($(this).css('top').substring(0, $(this).css('top').length-2)) + y_offset}
               details.push(detail);  
             }); 
             console.log(JSON.stringify(details));

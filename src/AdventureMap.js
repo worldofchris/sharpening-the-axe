@@ -7,7 +7,8 @@ var adventure_map = {
                     "valuing working software over comprehensive documentation, you can try the resulting software out at " +
                     "<a href='http://agilecam.worldofchris.com'>agilecam.worldofchris.com</a>. and then read about how it was made by exploring the " +
                     "artifacts below.",
-    "root": [{"name": "finbar","x":557,"y":742},{"name":"bdd-tests","x":887,"y":679},{"name":"beanstalk","x":112,"y":21},{"name":"node-lunch","x":714,"y":615},{"name":"skype-conversation-2","x":414,"y":634},{"name":"agile-manifesto","x":988,"y":46},{"name":"orig-arch","x":198,"y":146},{"name":"final-arch","x":72,"y":147},{"name":"richer-quote","x":99,"y":247},{"name":"story-map","x":328,"y":283},{"name":"skype-conversation","x":858,"y":456},{"name":"video-conference","x":557,"y":615},{"name":"cfd","x":330,"y":549},{"name":"aws-impl","x":557,"y":551},{"name":"soviet-style","x":1112,"y":486},{"name":"bash-container","x":1113,"y":611},{"name":"usage-stats","x":859,"y":282},{"name":"screen-shots","x":326,"y":65},{"name":"bare-bones-screen-shots","x":326,"y":169},{"name":"social-feedback","x":857,"y":361},{"name":"two-purples","x":988,"y":534},{"name":"prototype","x":793,"y":149},{"name":"creds","x":336,"y":634}],
+"root": [{"name":"finbar","x":452,"y":750},{"name":"bdd-tests","x":890,"y":742},{"name":"beanstalk","x":112,"y":21},{"name":"node-lunch","x":577,"y":749},{"name":"skype-conversation-2","x":311,"y":749},{"name":"agile-manifesto","x":988,"y":46},{"name":"orig-arch","x":198,"y":146},{"name":"final-arch","x":72,"y":147},{"name":"richer-quote","x":99,"y":247},{"name":"story-map","x":328,"y":283},{"name":"skype-conversation","x":855,"y":457},{"name":"video-conference","x":735,"y":749},{"name":"cfd","x":330,"y":549},{"name":"aws-impl","x":577,"y":875},{"name":"soviet-style","x":179,"y":405},{"name":"bash-container","x":980,"y":578},{"name":"usage-stats","x":859,"y":282},{"name":"screen-shots","x":326,"y":65},{"name":"bare-bones-screen-shots","x":326,"y":169},{"name":"social-feedback","x":857,"y":361},{"name":"two-purples","x":855,"y":599},{"name":"prototype","x":793,"y":149},{"name":"creds","x":131,"y":740}],
+    // "root": [{"name": "finbar","x":557,"y":742},{"name":"bdd-tests","x":887,"y":679},{"name":"beanstalk","x":112,"y":21},{"name":"node-lunch","x":714,"y":615},{"name":"skype-conversation-2","x":414,"y":634},{"name":"agile-manifesto","x":988,"y":46},{"name":"orig-arch","x":198,"y":146},{"name":"final-arch","x":72,"y":147},{"name":"richer-quote","x":99,"y":247},{"name":"story-map","x":328,"y":283},{"name":"skype-conversation","x":858,"y":456},{"name":"video-conference","x":557,"y":615},{"name":"cfd","x":330,"y":549},{"name":"aws-impl","x":557,"y":551},{"name":"soviet-style","x":1112,"y":486},{"name":"bash-container","x":1113,"y":611},{"name":"usage-stats","x":859,"y":282},{"name":"screen-shots","x":326,"y":65},{"name":"bare-bones-screen-shots","x":326,"y":169},{"name":"social-feedback","x":857,"y":361},{"name":"two-purples","x":988,"y":534},{"name":"prototype","x":793,"y":149},{"name":"creds","x":336,"y":634}],
       "options":[
         {
             "name": "brompton",
@@ -74,6 +75,9 @@ var adventure_map = {
                 "thumbnail": "assets/thumbnails/node-lunch.jpg",
                 "image": "assets/fullsize/node-lunch.jpg"
             },
+            "notes": ["One of great developers I've worked with in the last few years, first at YouView and then at Base79 is " +
+                      "Dave Spanton, aka <a href='https://twitter.com/megastoat'>@megastoat</a>.  Knowing he is a great Node head I " +
+                      "caught up with him over lunch to exchange notes on how I was approaching the code."],
             "links": ['finbar']
         },
         {
@@ -111,10 +115,11 @@ var adventure_map = {
                 "image": "assets/fullsize/original-architecture.png"
             },
             "position": {"left": "10px", "top": "10px"},
-            "notes": ['This is the original Systems Architecture which was presented to the Customer Ops team at the start of the project ' +
-                      'We decided on Node.js because... ' +
-                      'Since the processing work required to create the video would be blocking, time consuming and not instantly available ' +
-                      'we put a queue between the Web Tier and the Processing Tier.'],
+            "notes": ['<p>This is the original Systems Architecture which was presented to the Customer Ops team at the start of the project ' +
+                      'We decided on Node.js because the developer, me :-), had experience of using it both with OAuth and with the YouTube APIs. ' +
+                      'We also thought it would be good to use a small project to experiment with using Node on.</p>' +
+                      '<p>Since the processing work required to create the video would be blocking, time consuming and not instantly available ' +
+                      'we put a queue between the Web Tier and the Processing Tier.</p>'],
             "links": ["discovery-session", "prototype"]
         },
         {
@@ -140,8 +145,10 @@ var adventure_map = {
             },
             "position": {"left": "180px", "top": "60px"},
             "notes": ['This quote from Julian Richer jibes with the idea of <a href="#/node/soviet-style">&#39;Soviet Style&#39;</a>. ' +
-                      'We wanted to build something that customers would want to use'],
-            "links": ["social-feedback", "soviet-style"]
+                      'We wanted to build something that customers would want to use, not just fulfill our contractual obligation to the customer. ' +
+                      'The <a href="#/node/usage-stats">usage stats</a> and <a href="#/node/social-feedback">social feedback</a> gave us an idea of ' +
+                      'how well we were doing in achieving this.'],
+            "links": ["social-feedback", "soviet-style", "usage-stats"]
         },
         {
             "name": "story-map",
@@ -153,7 +160,9 @@ var adventure_map = {
                 "image": "assets/fullsize/story-map.jpg"
             },
             "links": ["discovery-session"],
-            "notes": ["The Story Map was used to define the scope and priority of the features that made up the application. "]
+            "notes": ["<p>The Story Map was used to define the scope and priority of the features that made up the application. " +
+                      'It was created with the customer during the <a href="#/node/discovery-session">Discovery Session</a>.</p>' +
+                      '<p>For more on Story Maps see creator <a href="http://www.agileproductdesign.com/blog/the_new_backlog.html">Jeff Patton</a>.</p>']
         },
         {
             "name": "skype-conversation",
@@ -311,7 +320,7 @@ var adventure_map = {
             "position": {"left": "520px", "top": "40px"},
             "notes": ['A hashtag designed to promote the advertisement and the micro site gave us a means of searching Twitter to see what people where saying about it. ' +
                       'To our delight we saw overwhelmingly positive comments.'],
-            "links": ["bdd-tests"]
+            "links": ["bdd-tests", "usage-stats"]
         },
         {
             "name": "two-purples",
@@ -322,7 +331,11 @@ var adventure_map = {
                 "thumbnail": "assets/thumbnails/two-purples.jpg",
                 "image": "assets/fullsize/two-purples.jpg"
             },
-            "notes": ["RGB to YUV colour conversion"],
+            "notes": ["At getting on for the eleventh hour we received a new cut of the video into which we were splicing our generated frames. " +
+                      "This point where this new cut needed to be joined to generated frame required both to use the same solid background colour. " +
+                      "However, when we ran the app with the new cut the two colours didn't match.  We eventually tracked the problem down to a change when " +
+                      "going from RGB to YUV.  This was a bit of a heart stopping momment as it looked very much like a " +
+                      '<a href="#/node/soviet-style">&#39;Soviet Style&#39;</a> situation.  Using a bit of math and some trial and error we fixed the problem.'],
             "links": ["soviet-style"]
         },
         {
@@ -335,7 +348,8 @@ var adventure_map = {
                 "image": "assets/fullsize/prototype-informs-ux.jpg"
             },
             "links": ["discovery-session", "system-boundary"],
-            "notes": ["Optimised for discovery, used to help explain the system boundary, zone of control"]
+            "notes": ["Before meeting with the customer we lashed together a technology prototype.  This was quick and dirty code with no tests. " +
+                      "Code to be thrown away; <i>Optimised for discovery</i>.  It allowed us test the points of integration and validate our technology choices."]
         },
         {
             "name": "system-boundary",
@@ -358,7 +372,8 @@ var adventure_map = {
                 "image": "assets/fullsize/creds.png"
             },
             "position": {"left": "280px", "top": "320px"},
-            "notes": ["We Are Friday are..."]
+            "notes": ["The application this case study is based on was developed by me at <a href='http://www.wearefriday.com/'>We Are Friday</a> a full service digital agency."],
+            "links": ["finbar", "discovery-session"]
         },
         {
             "name": "discovery-session",
