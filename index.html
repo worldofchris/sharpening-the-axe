@@ -1,0 +1,138 @@
+<!--Lint Lint Lint!-->
+<html>
+<head>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="assets/css/bootstrap.min.css">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="assets/css/bootstrap-theme.min.css">
+
+<link rel="stylesheet" href="assets/css/flipclock.css">
+
+<style>
+    .link {
+        margin: 2px;
+        color: black;
+        border: solid 0.4em #666;
+        border-radius: 0.75em;
+        padding: 5px;
+        display: inline-block;
+        vertical-align: top;
+    }
+    .option {
+        margin: 2px;
+
+        background-color: #29e;
+        color: white;
+        
+        border: solid 0.4em #666;
+        border-radius: 0.75em;
+        padding: 5px;
+    }
+    .notes {
+        margin: 2px;
+        color: black;
+        padding: 5px;
+    }
+    .fullsize-image {
+        margin: 2px;
+        display: inline-block;
+        vertical-align: top;
+
+        background-color: white;
+        color: black;
+        
+        border: solid 0.4em #666;
+        border-radius: 0.75em;
+        padding: 5px;
+        align: center;
+    }</style>
+
+</head>
+<body>
+
+
+    <div class="container" style="margin:10px">
+        <div class="row" id="header">
+        </div>
+        <div class="row" id="stage" style="height:680; position:relative">
+        </div>
+<!--         <div>
+            <h3><a href="http://worldofchris.github.io/down-to-the-wire/">worldofchris.github.io/down-to-the-wire</a> @worldofchris</h3>
+        </div>
+-->
+</div>
+    <script src="lib/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="lib/handlebars-v1.3.0.js"></script>
+
+    <script src="lib/bootstrap.min.js"></script>
+
+    <script src="lib/signals.js"></script>
+    <script src="lib/hasher.js"></script>
+    <script src="lib/crossroads.js"></script>
+
+    <script src="src/Adventure.js"></script>
+    <script src="src/AdventureMap.js"></script>
+
+    <script src="lib/showdown.js"></script>
+
+    <script src="lib/interact.js"></script>
+
+    <script>
+
+        function dumpCoOrds() {
+            var details = [];
+            $( ".option" ).each(function( index ) {
+              var x_offset = parseInt(($(this).attr('data-x'))) || 0;
+              var y_offset = parseInt(($(this).attr('data-y'))) || 0;
+              detail = {name: $(this).attr('id'), 
+                        x: parseInt($(this).css('left').substring(0, $(this).css('left').length-2)) + x_offset,
+                        y: parseInt($(this).css('top').substring(0, $(this).css('top').length-2)) + y_offset}
+              details.push(detail);  
+            }); 
+            console.log(JSON.stringify(details));
+        }
+        function makeDraggable(event) {
+            var target = event.target,
+                x = (parseFloat(target.getAttribute('data-x')) || 0) + event.dx,
+                y = (parseFloat(target.getAttribute('data-y')) || 0) + event.dy;
+
+            target.style.webkitTransform =
+            target.style.transform =
+                'translate(' + x + 'px, ' + y + 'px)';
+
+            target.setAttribute('data-x', x);
+            target.setAttribute('data-y', y);
+        }
+
+        $(document).ready(function() {
+            var adventure = new Adventure(adventure_map);
+
+            adventure.setStage($("#stage"));
+            adventure.setTitleHeader($("#header"));
+
+            start(adventure);
+            // Home means home
+
+            crossroads.addRoute('/', function() {
+                  start(adventure);
+                  $("#header").html(adventure_map.root_header);
+            });
+
+            function parseHash(newHash, oldHash){
+                // second parameter of crossroads.parse() is the "defaultArguments" and should be an array
+                // so we ignore the "oldHash" argument to avoid issues.
+                crossroads.parse(newHash);
+            }
+            hasher.initialized.add(parseHash); //parse initial hash
+            hasher.changed.add(parseHash); //parse hash changes
+             
+            hasher.init(); //start listening for hash changes
+
+            adventure.draggable(makeDraggable);
+
+        })        
+
+    </script>
+</body>
+</html>
