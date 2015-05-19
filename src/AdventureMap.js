@@ -1,5 +1,5 @@
 var adventure_map = {
-    "root_header": "<h1>Sharpening the Axe</h1>", 
+    "root_header": "<h1>Sharpening the Axe</h1>Talk given at <a href=&rdquo;http://londoncd.org.uk/&rdquo;>London Continuous Delivery</a> meetup.", 
     "root": [{"name":"overview","x":0,"y":0},{"name":"cfd","x":233,"y":-1},{"name":"architecture","x":0,"y":326},{"name":"story-map","x":0,"y":172},{"name":"dev-ops","x":232,"y":217},{"name":"bash","x":228,"y":395},{"name":"vagrant-aws-tin","x":456,"y":407},{"name":"sushi","x":464,"y":218},{"name":"roux","x":737,"y":218},{"name":"technicolor","x":969,"y":218},{"name":"upstream","x":618,"y":503},{"name":"bat-signal","x":1096,"y":411},{"name":"by-hand","x":955,"y":418}],
     "options":[
         {
